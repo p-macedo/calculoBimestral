@@ -324,19 +324,18 @@
 
         // Fechar o modal e limpar os campos
         closeModalBtn.addEventListener('click', () => {
-            window.location.replace(window.location.href); // Vai recarregar a página atual sem usar cache
             location.reload(); // Recarrega a página atual
-            modal.classList.add('hidden');
+            // modal.classList.add('hidden');
             // Limpar os campos
-            attendanceInput.value = '';
-            platformsInput.value = '';
-            bimestralInput.value = '';
-            paulistaInput.value = '';
+            //attendanceInput.value = '';
+            //platformsInput.value = '';
+            //bimestralInput.value = '';
+            //paulistaInput.value = '';
             // Limpar os resultados e o cálculo detalhado
-            mediaResultDiv.classList.add('hidden');
-            calculationDetailDiv.classList.add('hidden');
+            //mediaResultDiv.classList.add('hidden');
+            //calculationDetailDiv.classList.add('hidden');
             // Redirecionar para a página inicial e limpar o cache
-            window.location.replace(window.location.href); // Vai recarregar a página atual sem usar cache
+            //window.location.replace(window.location.href); // Vai recarregar a página atual sem usar cache
 
         });
 
