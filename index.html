@@ -21,7 +21,8 @@
             <h1 class="text-3xl font-bold text-blue-600 mb-6">Cálculo de Média Interativo</h1>
             <h1 class="text-4xl font-bold text-gray-600 mb-6">MATEMÁTICA - Prof. Pedro Macedo</h1>
             <p class="text-red-600 text-sm font-semibold">Ausência na Prova Bimestral, acarretará em Nota 0 "Zero".</p>
-            <p class="text-red-600 text-sm font-semibold">Prova substitutiva somente com apresentação de Atestado Médico.</p>
+            <p class="text-red-600 text-sm font-semibold">Prova substitutiva somente com apresentação de Atestado
+                Médico.</p>
             <p class="text-gray-600 text-lg mt-6">Cálculo da média passo a passo com base nos critérios.</p>
         </header>
 
@@ -30,14 +31,14 @@
             <div class="w-full max-w-xl">
                 <div class="mermaid">
                     graph TB
-                        A[Média Final]:::blue --> B[Presença <i class='fas fa-user-check'></i>]:::red
-                        A --> C[Plataformas <i class='fas fa-laptop'></i>]:::green
-                        A --> D[Prova Bimestral <i class='fas fa-file-alt'></i>]:::yellow
-                        A --> E[Prova Paulista <i class='fas fa-school'></i>]:::purple
-                        B --> B1[Peso 4]:::red
-                        C --> C1[Peso 3]:::green
-                        D --> D1[Peso 2]:::yellow
-                        E --> E1[Peso 1]:::purple
+                    A[Média Final]:::blue --> B[Presença <i class='fas fa-user-check'></i>]:::red
+                    A --> C[Plataformas <i class='fas fa-laptop'></i>]:::green
+                    A --> D[Prova Bimestral <i class='fas fa-file-alt'></i>]:::yellow
+                    A --> E[Prova Paulista <i class='fas fa-school'></i>]:::purple
+                    B --> B1[Peso 4]:::red
+                    C --> C1[Peso 3]:::green
+                    D --> D1[Peso 2]:::yellow
+                    E --> E1[Peso 1]:::purple
                     classDef blue fill:#2563eb,stroke:#1e40af,stroke-width:2px,color:#fff;
                     classDef red fill:#dc2626,stroke:#991b1b,stroke-width:2px,color:#fff;
                     classDef green fill:#16a34a,stroke:#166534,stroke-width:2px,color:#fff;
@@ -49,7 +50,8 @@
 
         <!-- Botão para Transformação de Presença -->
         <div class="text-center">
-            <button id="showAttendance" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
+            <button id="showAttendance"
+                class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
                 Calcular Nota de Presença
             </button>
         </div>
@@ -70,7 +72,8 @@
                     Com base nessa fórmula, a nota de presença é proporcional à frequência do aluno, variando de 0 a 10.
                 </p>
                 <div class="text-center mt-6">
-                    <button id="showExample" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
+                    <button id="showExample"
+                        class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
                         Próximo Passo
                     </button>
                 </div>
@@ -100,7 +103,8 @@
                     </li>
                 </ul>
                 <div class="text-center mt-6">
-                    <button id="showCalculation" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
+                    <button id="showCalculation"
+                        class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
                         Exibir Cálculo
                     </button>
                 </div>
@@ -117,7 +121,8 @@
                 </p>
                 <p class="mt-4">
                     Substituindo os valores:
-                    \[ \text{Média} = \frac{(6.25 \times 4) + (7 \times 3) + (9 \times 2) + (6 \times 1)}{4 + 3 + 2 + 1} \]
+                    \[ \text{Média} = \frac{(6.25 \times 4) + (7 \times 3) + (9 \times 2) + (6 \times 1)}{4 + 3 + 2 + 1}
+                    \]
                 </p>
                 <p class="mt-4">
                     Soma dos resultados ponderados:
@@ -134,52 +139,78 @@
                     <strong>Arredondando a Nota:</strong> \[ Média = 7.0 \]
                 </p>
             </div>
-            
+
             <!-- Botão para Abrir Modal de Notas -->
             <div class="text-center mb-6">
-                <button id="openModalBtn" class="px-6 py-2 mt-4 bg-green-500 text-white font-semibold rounded-full shadow hover:bg-green-600 focus:ring-2 focus:ring-blue-300">
+                <button id="openModalBtn"
+                    class="px-6 py-2 mt-4 bg-green-500 text-white font-semibold rounded-full shadow hover:bg-green-600 focus:ring-2 focus:ring-blue-300">
                     Calcular Minha Média
                 </button>
             </div>
 
         </div>
 
-    
-        
+
+
 
     </div>
 
     <!-- Modal -->
     <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-8 rounded-lg w-1/3">
-            <h2 class="text-2xl text-center font-bold text-gray-800 mb-4">Insira suas notas e calcule sua média Bimestral</h2>
+        <div class="bg-white p-8 rounded-lg w-full sm:w-1/2 md:w-1/3 max-w-full">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-4">Insira suas notas e calcule sua
+                média Bimestral</h2>
             <form id="gradesForm">
                 <div class="mb-4">
-                    <label for="attendance" class="block text-sm font-medium text-gray-700">Presença (0 a 10) - Peso 4</label>
-                    <input type="number" id="attendance" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                    <label for="attendance" class="block text-sm sm:text-base font-medium text-gray-700">Presença (0 a
+                        10) - Peso 4</label>
+                    <input type="number" id="attendance" class="w-full mt-2 p-2 border rounded text-sm sm:text-base"
+                        required min="0" max="10" step="0.01">
                 </div>
                 <div class="mb-4">
-                    <label for="platforms" class="block text-sm font-medium text-gray-700">Plataformas (0 a 10) - Peso 3</label>
-                    <input type="number" id="platforms" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                    <label for="platforms" class="block text-sm sm:text-base font-medium text-gray-700">Plataformas (0 a
+                        10) - Peso 3</label>
+                    <input type="number" id="platforms" class="w-full mt-2 p-2 border rounded text-sm sm:text-base"
+                        required min="0" max="10" step="0.01">
                 </div>
                 <div class="mb-4">
-                    <label for="bimestral" class="block text-sm font-medium text-gray-700">Prova Bimestral (0 a 10) - Peso 2</label>
-                    <input type="number" id="bimestral" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                    <label for="bimestral" class="block text-sm sm:text-base font-medium text-gray-700">Prova Bimestral
+                        (0 a 10) - Peso 2</label>
+                    <input type="number" id="bimestral" class="w-full mt-2 p-2 border rounded text-sm sm:text-base"
+                        required min="0" max="10" step="0.01">
                 </div>
                 <div class="mb-4">
-                    <label for="paulista" class="block text-sm font-medium text-gray-700">Prova Paulista (0 a 10) - Peso 1</label>
-                    <input type="number" id="paulista" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                    <label for="paulista" class="block text-sm sm:text-base font-medium text-gray-700">Prova Paulista (0
+                        a 10) - Peso 1</label>
+                    <input type="number" id="paulista" class="w-full mt-2 p-2 border rounded text-sm sm:text-base"
+                        required min="0" max="10" step="0.01">
                 </div>
                 <div class="flex justify-between">
-                    <button type="button" id="closeModal" class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-gray-600">Fechar</button>
-                    <button type="submit" class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700">Calcular Média</button>
+                    <button type="button" id="closeModal"
+                        class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-gray-600 text-sm sm:text-base">Fechar</button>
+                    <button type="submit"
+                        class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 text-sm sm:text-base">Calcular
+                        Média</button>
                 </div>
             </form>
+
+            <!-- Novo elemento para exibir a média calculada -->
+            <div id="mediaResult" class="mt-4 text-xl sm:text-2xl font-semibold text-center text-gray-800 hidden">
+                <p><strong>Média Final: </strong><span id="calculatedMedia">0</span></p>
+            </div>
+
+            <!-- Exibição do cálculo detalhado -->
+            <div id="calculationDetail" class="mt-6 hidden">
+                <h3 class="font-semibold text-lg sm:text-xl text-gray-800">Cálculo Detalhado:</h3>
+                <div id="detailedCalculation" class="mt-2 text-sm sm:text-base text-gray-700 overflow-auto max-h-64">
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Botão para subir ao topo -->
-    <button id="scrollToTopBtn" class="fixed bottom-24 right-48 px-4 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-400">
+    <button id="scrollToTopBtn"
+        class="fixed bottom-24 right-48 px-4 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-400">
         ↑
     </button>
 
@@ -254,9 +285,61 @@
             const somaNotas = notas.reduce((acc, nota, index) => acc + nota * pesos[index], 0);
             const media = somaNotas / somaPesos;
 
-            alert(`Média Calculada: ${media.toFixed(2)}`);
-            modal.classList.add('hidden');
+            // Arredondar a média
+            const mediaArredondada = Math.round(media); // Arredondamento para o número inteiro mais próximo
+
+            // Exibir o resultado da média calculada no modal
+            const mediaResultDiv = document.getElementById('mediaResult');
+            const calculatedMediaSpan = document.getElementById('calculatedMedia');
+            calculatedMediaSpan.textContent = mediaArredondada;
+            mediaResultDiv.classList.remove('hidden'); // Torna o resultado visível
+
+            // Exibir o cálculo detalhado utilizando MathJax
+            const calculationDetailDiv = document.getElementById('calculationDetail');
+            const detailedCalculationDiv = document.getElementById('detailedCalculation');
+
+            const detailedCalculation = `
+        <p>
+            <strong>Substituindo as notas:</strong> 
+            \\[ 
+                \\text{Média} = \\frac{(${attendance} \\times 4) + (${platforms} \\times 3) + (${bimestral} \\times 2) + (${paulista} \\times 1)}{4 + 3 + 2 + 1} 
+            \\]
+        </p>
+        <p>
+            <strong>Soma dos resultados ponderados:</strong> 
+            \\[ 
+                \\text{Média} = \\frac{(${attendance * 4} + ${platforms * 3} + ${bimestral * 2} + ${paulista * 1})}{10} = \\frac{${somaNotas}}{10}
+            \\]
+        </p>
+        <p>
+            <strong>Resultado final:</strong> \\[ \\text{Média} = ${mediaArredondada} \\]
+        </p>
+    `;
+            detailedCalculationDiv.innerHTML = detailedCalculation;
+            calculationDetailDiv.classList.remove('hidden'); // Torna o cálculo detalhado visível
+
+            // Re-renderizar o cálculo com MathJax
+            MathJax.typeset();
         });
+
+        // Fechar o modal e limpar os campos
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            // Limpar os campos
+            attendanceInput.value = '';
+            platformsInput.value = '';
+            bimestralInput.value = '';
+            paulistaInput.value = '';
+            // Limpar os resultados e o cálculo detalhado
+            mediaResultDiv.classList.add('hidden');
+            calculationDetailDiv.classList.add('hidden');
+            // Redirecionar para a página inicial e limpar o cache
+            window.location.replace(window.location.href); // Vai recarregar a página atual sem usar cache
+
+        });
+
+
+
 
         // Mostrar botão de "subir ao topo" somente quando a página for rolada
         window.addEventListener('scroll', () => {
