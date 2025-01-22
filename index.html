@@ -324,6 +324,8 @@
 
         // Fechar o modal e limpar os campos
         closeModalBtn.addEventListener('click', () => {
+            window.location.replace(window.location.href); // Vai recarregar a página atual sem usar cache
+            location.reload(); // Recarrega a página atual
             modal.classList.add('hidden');
             // Limpar os campos
             attendanceInput.value = '';
