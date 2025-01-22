@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organograma Interativo</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="bg-white shadow-lg rounded-lg max-w-4xl w-full p-8 mx-auto">
+        <!-- Header -->
+        <header id="topSection" class="text-center">
+            <h1 class="text-3xl font-bold text-blue-600 mb-6">Cálculo de Média Interativo</h1>
+            <h1 class="text-4xl font-bold text-gray-600 mb-6">MATEMÁTICA - Prof. Pedro Macedo</h1>
+            <p class="text-red-600 text-sm font-semibold">Ausência na Prova Bimestral, acarretará em Nota 0 "Zero".</p>
+            <p class="text-red-600 text-sm font-semibold">Prova substitutiva somente com apresentação de Atestado Médico.</p>
+            <p class="text-gray-600 text-lg mt-6">Cálculo da média passo a passo com base nos critérios.</p>
+        </header>
+
+        <!-- Organograma -->
+        <div class="my-8 bg-gray-100 rounded-lg p-6 flex items-center justify-center">
+            <div class="w-full max-w-xl">
+                <div class="mermaid">
+                    graph TB
+                        A[Média Final]:::blue --> B[Presença <i class='fas fa-user-check'></i>]:::red
+                        A --> C[Plataformas <i class='fas fa-laptop'></i>]:::green
+                        A --> D[Prova Bimestral <i class='fas fa-file-alt'></i>]:::yellow
+                        A --> E[Prova Paulista <i class='fas fa-school'></i>]:::purple
+                        B --> B1[Peso 4]:::red
+                        C --> C1[Peso 3]:::green
+                        D --> D1[Peso 2]:::yellow
+                        E --> E1[Peso 1]:::purple
+                    classDef blue fill:#2563eb,stroke:#1e40af,stroke-width:2px,color:#fff;
+                    classDef red fill:#dc2626,stroke:#991b1b,stroke-width:2px,color:#fff;
+                    classDef green fill:#16a34a,stroke:#166534,stroke-width:2px,color:#fff;
+                    classDef yellow fill:#facc15,stroke:#ca8a04,stroke-width:2px,color:#000;
+                    classDef purple fill:#7c3aed,stroke:#5b21b6,stroke-width:2px,color:#fff;
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão para Transformação de Presença -->
+        <div class="text-center">
+            <button id="showAttendance" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
+                Calcular Nota de Presença
+            </button>
+        </div>
+
+        <!-- Transformação de Presença -->
+        <div id="attendanceSection" class="hidden mt-6 relative">
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Transformação da Presença em Nota</h2>
+                <p class="mb-4">
+                    Para calcular a nota de presença, utilizamos a fórmula:
+                    \[ \text{Nota de Presença} = \frac{\text{Aulas Assistidas}}{\text{Total de Aulas}} \times 10 \]
+                </p>
+                <p class="mb-4">
+                    Exemplo: Se o aluno assistiu 20 aulas de um total de 32:
+                    \[ \text{Nota de Presença} = \frac{20}{32} \times 10 = 6.25 \]
+                </p>
+                <p>
+                    Com base nessa fórmula, a nota de presença é proporcional à frequência do aluno, variando de 0 a 10.
+                </p>
+                <div class="text-center mt-6">
+                    <button id="showExample" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
+                        Próximo Passo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemplo Fictício -->
+        <div id="example" class="hidden mt-6 relative">
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Exemplo Fictício</h2>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <span class="w-4 h-4 bg-red-500 rounded-full mr-2"></span>
+                        <span class="font-medium">Presença:</span> <span class="ml-2">6.25</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-4 h-4 bg-green-500 rounded-full mr-2"></span>
+                        <span class="font-medium">Plataformas:</span> <span class="ml-2">7</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-4 h-4 bg-yellow-500 rounded-full mr-2"></span>
+                        <span class="font-medium">Prova Bimestral:</span> <span class="ml-2">9</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-4 h-4 bg-purple-500 rounded-full mr-2"></span>
+                        <span class="font-medium">Prova Paulista:</span> <span class="ml-2">6</span>
+                    </li>
+                </ul>
+                <div class="text-center mt-6">
+                    <button id="showCalculation" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-full shadow hover:bg-blue-600 focus:ring-2 focus:ring-blue-300">
+                        Exibir Cálculo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cálculo -->
+        <div id="calculation" class="hidden mt-6 relative">
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Cálculo da Média Ponderada</h2>
+                <p>
+                    <strong>Fórmula:</strong>
+                    \[ \text{Média} = \frac{\sum (\text{Nota} \times \text{Peso})}{\sum \text{Pesos}} \]
+                </p>
+                <p class="mt-4">
+                    Substituindo os valores:
+                    \[ \text{Média} = \frac{(6.25 \times 4) + (7 \times 3) + (9 \times 2) + (6 \times 1)}{4 + 3 + 2 + 1} \]
+                </p>
+                <p class="mt-4">
+                    Soma dos resultados ponderados:
+                    \[ 25 + 21 + 18 + 6 = 70.25 \]
+                </p>
+                <p class="mt-4">
+                    Soma dos pesos:
+                    \[ 4 + 3 + 2 + 1 = 10 \]
+                </p>
+                <p class="mt-4 font-semibold text-gray-800">
+                    <strong>Média Final:</strong> \[ \frac{70.25}{10} = 7.025 \]
+                </p>
+                <p class="mt-4 font-semibold text-gray-800">
+                    <strong>Arredondando a Nota:</strong> \[ Média = 7.0 \]
+                </p>
+            </div>
+            
+            <!-- Botão para Abrir Modal de Notas -->
+            <div class="text-center mb-6">
+                <button id="openModalBtn" class="px-6 py-2 mt-4 bg-green-500 text-white font-semibold rounded-full shadow hover:bg-green-600 focus:ring-2 focus:ring-blue-300">
+                    Calcular Minha Média
+                </button>
+            </div>
+
+        </div>
+
+    
+        
+
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-8 rounded-lg w-1/3">
+            <h2 class="text-2xl text-center font-bold text-gray-800 mb-4">Insira suas notas e calcule sua média Bimestral</h2>
+            <form id="gradesForm">
+                <div class="mb-4">
+                    <label for="attendance" class="block text-sm font-medium text-gray-700">Presença (0 a 10) - Peso 4</label>
+                    <input type="number" id="attendance" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                </div>
+                <div class="mb-4">
+                    <label for="platforms" class="block text-sm font-medium text-gray-700">Plataformas (0 a 10) - Peso 3</label>
+                    <input type="number" id="platforms" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                </div>
+                <div class="mb-4">
+                    <label for="bimestral" class="block text-sm font-medium text-gray-700">Prova Bimestral (0 a 10) - Peso 2</label>
+                    <input type="number" id="bimestral" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                </div>
+                <div class="mb-4">
+                    <label for="paulista" class="block text-sm font-medium text-gray-700">Prova Paulista (0 a 10) - Peso 1</label>
+                    <input type="number" id="paulista" class="w-full mt-2 p-2 border rounded" required min="0" max="10" step="0.01">
+                </div>
+                <div class="flex justify-between">
+                    <button type="button" id="closeModal" class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-gray-600">Fechar</button>
+                    <button type="submit" class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700">Calcular Média</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Botão para subir ao topo -->
+    <button id="scrollToTopBtn" class="fixed bottom-24 right-48 px-4 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-400">
+        ↑
+    </button>
+
+    <!-- Script para Interatividade -->
+    <script>
+        const showAttendanceBtn = document.getElementById('showAttendance');
+        const attendanceSection = document.getElementById('attendanceSection');
+        const showExampleBtn = document.getElementById('showExample');
+        const showCalculationBtn = document.getElementById('showCalculation');
+        const exampleContent = document.getElementById('example');
+        const calculationContent = document.getElementById('calculation');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const modal = document.getElementById('modal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const gradesForm = document.getElementById('gradesForm');
+        const attendanceInput = document.getElementById('attendance');
+        const platformsInput = document.getElementById('platforms');
+        const bimestralInput = document.getElementById('bimestral');
+        const paulistaInput = document.getElementById('paulista');
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Função para rolar suavemente até uma seção
+        function scrollToSection(section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Mostrar seção de presença
+        showAttendanceBtn.addEventListener('click', () => {
+            attendanceSection.classList.remove('hidden');
+            showAttendanceBtn.classList.add('hidden');
+            scrollToSection(attendanceSection);
+        });
+
+        // Exibir exemplo fictício
+        showExampleBtn.addEventListener('click', () => {
+            exampleContent.classList.remove('hidden');
+            showExampleBtn.classList.add('hidden');
+            scrollToSection(exampleContent);
+        });
+
+        // Exibir cálculo detalhado
+        showCalculationBtn.addEventListener('click', () => {
+            calculationContent.classList.remove('hidden');
+            showCalculationBtn.classList.add('hidden');
+            scrollToSection(calculationContent);
+        });
+
+        // Abrir o modal
+        openModalBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        // Fechar o modal
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Calcular a média
+        gradesForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const attendance = parseFloat(attendanceInput.value);
+            const platforms = parseFloat(platformsInput.value);
+            const bimestral = parseFloat(bimestralInput.value);
+            const paulista = parseFloat(paulistaInput.value);
+
+            const pesos = [4, 3, 2, 1];
+            const notas = [attendance, platforms, bimestral, paulista];
+
+            // Calcular média ponderada
+            const somaPesos = pesos.reduce((a, b) => a + b, 0);
+            const somaNotas = notas.reduce((acc, nota, index) => acc + nota * pesos[index], 0);
+            const media = somaNotas / somaPesos;
+
+            alert(`Média Calculada: ${media.toFixed(2)}`);
+            modal.classList.add('hidden');
+        });
+
+        // Mostrar botão de "subir ao topo" somente quando a página for rolada
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+            }
+        });
+
+        // Ao clicar no botão de "subir ao topo"
+        scrollToTopBtn.addEventListener('click', () => {
+            scrollToSection(document.getElementById('topSection'));
+        });
+    </script>
+
+</body>
+
+</html>
